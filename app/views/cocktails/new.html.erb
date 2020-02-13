@@ -2,25 +2,49 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
-<h1>fuck</h1>
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-
-  <label>Ingredints:</label>
-  <select class="form-control select2-multiple" multiple>
-    <div class="results">
-      <!-- Load ingredients to selector !-->
-      <% @ingredients = Ingredient.all.each do |ingredient| %>
-        <option class="dropdown-item ingredient-<%= ingredient.name.delete(' ') %>"><%= ingredient.name %></option>
-      <% end %>
-      <!-- Dosage and cleaner button (clean form and save data) !-->
-      <input type="text" id="dose" style="display: none"></input>
-      <button id="add-more" style="display: none">add ingredient</button>
-      <input id="results" type="text" name="cocktail[ingredient]" style="display: none">
+<%= javascript_pack_tag 'index' %>
+  <div class="navbar">
+    <div class="search">
+      <label>Search</label>
+      <input type="text" name="index" placeholder="Search cocktail">
     </div>
-  </select>
-  <%= f.submit %>
-<% end %>
+    <div class="add">
+      <a href="<%= cocktails_path %>"><button>Go Home!</button></a>
+    </div>
+  </div>
+  <div class="banner">
+    <div class="con">
+      <h1>Your Cocktail <br>Your lifestyle<br>Your book</h1>
+      <p>Change your life and learn to make cray cocktails at one of our campuses around the world.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
+  <div class="addbox">
 
+  <div id="contact"><%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
 
+    <label>Ingredints:</label>
+    <select class="form-control select2-multiple" multiple>
+      <div class="results">
+        <!-- Load ingredients to selector !-->
+        <% @ingredients = Ingredient.all.each do |ingredient| %>
+          <option class="dropdown-item ingredient-<%= ingredient.name.delete(' ') %>"><%= ingredient.name %></option>
+        <% end %>
+        <!-- Dosage and cleaner button (clean form and save data) !-->
+        <input type="text" id="dose" style="display: none"></input>
+        <button id="add-more" style="display: none">add ingredient</button>
+        <input id="results" type="text" name="cocktail[ingredient]" style="display: none">
+    </select>
+    <%= f.submit %>
+  <% end %>
+</select>
+      </div>
+  </div>
+</div>
+</div>
+  <div class="footerr">
+    <!-- Footer here</!-->
+    <span>This is footer</span>
+  </div>

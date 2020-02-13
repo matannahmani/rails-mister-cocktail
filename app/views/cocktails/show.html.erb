@@ -1,5 +1,4 @@
 <%= javascript_pack_tag 'index' %>
-<div class="container">
   <div class="navbar">
     <div class="search">
       <label>Search</label>
@@ -8,25 +7,34 @@
     <div class="add">
       <a href="<%= new_cocktail_path %>"><button>Your Cocktail</button></a>
     </div>
-  </div>
-  <div class="banner">
-    <!-- Banner content</!-->
-    <h1>Img is here</h1>
-  </div>
-  <div class="cardbox">
-    <!-- Cards should be place here</!-->
-    <div class="cards">
-      <h1><%= @cocktail.name %></h1>
-      <% dose = Dose.find(@cocktail.id) %>
-      <p><%= dose.ingredient.name %> - <%= dose.description %></p>
-      <%= cl_image_tag @cocktail.photo.key, height: 150, width: 150, crop: :fill %>
-      <span id="edit"><%= link_to 'edit', edit_cocktail_path(@cocktail) %></span>
-      <%= link_to "Remove", destroy_path(@cocktail), method: :delete %>
-
+    <div class="add">
+      <a href="<%= cocktails_path %>"><button>Go Home!</button></a>
     </div>
   </div>
+  <div class="banner">
+    <div class="container">
+      <h1>Your Cocktail <br>Your lifestyle<br>Your book</h1>
+      <p>Change your life and learn to make cray cocktails at one of our campuses around the world.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
+<div class="container">
+  <div class="cardbox">
+    <!-- Cards should be place here</!-->
+    <div class="card-product">
+      <%= cl_image_tag @cocktail.photo.key, height: 150, width: 150, crop: :fill %>
+      <div class="card-product-infos">
+      <h2><%= @cocktail.name %></h1>
+      <% dose = Dose.find(@cocktail.id) %>
+      <p><%= dose.ingredient.name %> - <%= dose.description %></p>
+      <span id="edit"><%= link_to 'edit', edit_cocktail_path(@cocktail) %></span>
+      <%= link_to "Remove", destroy_path(@cocktail), method: :delete %>
+    </h2>
+    </div>
+  </div>
+</div>
+</div>
   <div class="footer">
     <!-- Footer here</!-->
     <span>This is footer</span>
   </div>
-</div>
