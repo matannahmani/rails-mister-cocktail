@@ -1,0 +1,32 @@
+<%= javascript_pack_tag 'index' %>
+<div class="container">
+  <div class="navbar">
+    <div class="search">
+      <label>Search</label>
+      <input type="text" name="index" placeholder="Search cocktail">
+    </div>
+    <div class="add">
+      <a href="<%= new_cocktail_path %>"><button>Your Cocktail</button></a>
+    </div>
+  </div>
+  <div class="banner">
+    <!-- Banner content</!-->
+    <h1>Img is here</h1>
+  </div>
+  <div class="cardbox">
+    <!-- Cards should be place here</!-->
+    <div class="cards">
+      <h1><%= @cocktail.name %></h1>
+      <% dose = Dose.find(@cocktail.id) %>
+      <p><%= dose.ingredient.name %> - <%= dose.description %></p>
+      <%= cl_image_tag @cocktail.photo.key, height: 150, width: 150, crop: :fill %>
+      <span id="edit"><%= link_to 'edit', edit_cocktail_path(@cocktail) %></span>
+      <%= link_to "Remove", destroy_path(@cocktail), method: :delete %>
+
+    </div>
+  </div>
+  <div class="footer">
+    <!-- Footer here</!-->
+    <span>This is footer</span>
+  </div>
+</div>

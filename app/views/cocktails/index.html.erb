@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="navbar">
+    <div class="search">
+      <label>Search</label>
+      <input type="text" name="index" placeholder="Search cocktail">
+    </div>
+    <div class="add">
+      <a href="<%= new_cocktail_path %>"><button>Your Cocktail</button></a>
+    </div>
+  </div>
+  <div class="banner">
+    <!-- Banner content</!-->
+    <h1>Img is here</h1>
+  </div>
+  <div class="cardbox">
+    <!-- Cards should be place here</!-->
+    <div class="cards">
+      <% @cocktails.each do |cocktail|%>
+      <h1><%= cocktail.name %></h1>
+      <% @dose_ids = cocktail.dose_ids %>
+      <% @dose_ids.each do |ingredient| %>
+      <p><%= Dose.find(ingredient).ingredient.name %> - <%= Dose.find(ingredient).description %></p>
+      <% end %>
+      <%= cl_image_tag cocktail.photo.key, height: 150, width: 150, crop: :fill %>
+      <%= link_to "Update?", cocktail_path(cocktail) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="footer">
+    <!-- Footer here</!-->
+    <span>This is footer</span>
+  </div>
+</div>

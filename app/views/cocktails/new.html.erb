@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+<h1>fuck</h1>
+<%= simple_form_for @cocktail do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
+
+  <label>Ingredints:</label>
+  <select class="form-control select2-multiple" multiple>
+    <div class="results">
+      <!-- Load ingredients to selector !-->
+      <% @ingredients = Ingredient.all.each do |ingredient| %>
+        <option class="dropdown-item ingredient-<%= ingredient.name.delete(' ') %>"><%= ingredient.name %></option>
+      <% end %>
+      <!-- Dosage and cleaner button (clean form and save data) !-->
+      <input type="text" id="dose" style="display: none"></input>
+      <button id="add-more" style="display: none">add ingredient</button>
+      <input id="results" type="text" name="cocktail[ingredient]" style="display: none">
+    </div>
+  </select>
+  <%= f.submit %>
+<% end %>
+
+

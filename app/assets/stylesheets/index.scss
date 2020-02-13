@@ -1,0 +1,74 @@
+$spacer: 8px;
+$margin: 16px;
+
+*{
+  margin: 0;
+}
+
+body{
+  background-color: #f1fcfc;
+}
+.navbar{
+  display: flex;
+  background: #40e0d0;
+  padding: $spacer;
+  text-align: center;
+  justify-content: space-between;
+}
+.search {
+  display: flex;
+  padding: $spacer;
+  color: black;
+  border-radius: 3px;
+  align-self: flex-end;
+  text-align: center;
+}
+.search input{
+  width: 100px;
+}
+.search label{
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: $spacer;
+}
+.navbar button{
+  display: flex;
+  padding: $spacer*2;
+  align-self: flex-start;
+  border: 1px round #f1fcfc;
+  border-radius: 16px;
+}
+.banner {
+  height: 250px;
+  width: 100vw;
+  background: url('https://www.top10berlin.de/sites/top10berlin.de/files/location/mainimages/2015/10/08/bar-ansicht_dpa.jpg') no-repeat;
+  background-size: cover;
+}
+.banner h1{
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  padding-top: 50px;
+}
+.cardbox {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+.cards {
+  text-align: center;
+  padding: $spacer;
+}
+.cards p{
+  padding: $spacer;
+}
+.footer{
+  position: absolute;
+  background: #40e0d0;
+  width: 100vw;
+  bottom: 0;
+}
+.select2-container{
+  width: 150px !important;
+}
