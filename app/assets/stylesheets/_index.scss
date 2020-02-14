@@ -75,7 +75,7 @@ body{
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  position: relative;
 }
 .cardbox {
   padding: 8px;
@@ -89,7 +89,7 @@ body{
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin-top: 0;
 }
 
 .card-product p {
@@ -100,8 +100,13 @@ body{
   margin-right: 8px;
   margin-top: 8px;
 }
-
+.card-product span {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+}
 .card-product .card-product-infos {
+  width: 200px;
   padding: 16px;
 }
 
@@ -284,4 +289,11 @@ fieldset {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.add-more {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }

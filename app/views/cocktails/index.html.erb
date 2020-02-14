@@ -11,7 +11,6 @@
     <div class="container">
       <h1>Your Cocktail <br>Your lifestyle<br>Your book</h1>
       <p>Change your life and learn to make cray cocktails at one of our campuses around the world.</p>
-      <a class="btn btn-flat" href="#">Apply now</a>
     </div>
   </div>
 
@@ -19,7 +18,8 @@
   <div class="cardbox">
     <!-- Cards should be place here</!-->
     <div class="cards">
-      <% @cocktails.each do |cocktail|%>
+      <% if !@cocktails.nil? %>
+      <% @cocktails.each do |cocktail| %>
     <div class="card-product">
       <%= cl_image_tag cocktail.photo.key, height: 150, width: 150, crop: :fill %>
       <div class="card-product-infos">
@@ -28,14 +28,16 @@
       <% @dose_ids.each do |ingredient| %>
       <p><%= Dose.find(ingredient).ingredient.name %> - <%= Dose.find(ingredient).description %></p>
       <% end %>
-      <p><%= link_to "Update?", cocktail_path(cocktail) %></p>
+      <span><%= link_to "Update?", cocktail_path(cocktail) %></span>
       </div>
-      <% end %>
     </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
     <!-- Footer here</!-->
+  </div>
   <div class="footerr">
     <span>This is footer</span>
   </div>

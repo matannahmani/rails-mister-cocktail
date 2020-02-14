@@ -25,7 +25,7 @@
       <%= cl_image_tag @cocktail.photo.key, height: 150, width: 150, crop: :fill %>
       <div class="card-product-infos">
       <h2><%= @cocktail.name %></h1>
-      <% dose = Dose.find(@cocktail.id) %>
+      <% dose = Dose.find_by(cocktail_id: @cocktail.id) %>
       <p><%= dose.ingredient.name %> - <%= dose.description %></p>
       <span id="edit"><%= link_to 'edit', edit_cocktail_path(@cocktail) %></span>
       <%= link_to "Remove", destroy_path(@cocktail), method: :delete %>

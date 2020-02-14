@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: [:show, :destory]
+  before_action :find_cocktail, only: [:show, :destroy]
   def new
     @ingredients = Ingredient.all
     @cocktail = Cocktail.new()
@@ -21,6 +21,7 @@ class CocktailsController < ApplicationController
   def update
   end
   def create
+    @cocktails = Cocktail.all
     cocktail_name = params['cocktail']
     cock = Cocktail.new(cocktails_params)
     cock.save
@@ -36,9 +37,8 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-    raise
     @cocktail.destroy
-    render :index
+    redirect_to cocktails_path and return
   end
 
   private
