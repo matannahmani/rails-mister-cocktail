@@ -9,11 +9,14 @@ body{
   background-color: #f1fcfc;
 }
 .navbar{
+  position: sticky;
+  top: 0;
   display: flex;
   background: #40e0d0;
   padding: $spacer;
   text-align: center;
   justify-content: space-between;
+  z-index: 1;
 }
 .search {
   display: flex;
@@ -275,7 +278,7 @@ fieldset {
   color: #888;
 }
 .footerr {
-  position: absolute;
+  position: sticky;
   bottom: 0;
   background: #40e0d0;
   display: flex;
@@ -285,6 +288,7 @@ fieldset {
   height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  z-index: 1;
 }
 .cards {
   display: flex;
