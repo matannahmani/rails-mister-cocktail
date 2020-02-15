@@ -116,6 +116,7 @@ body{
 
 .footer{
   position: absolute;
+  position: fixed;
   background: #40e0d0;
   width: 100vw;
   bottom: 0;
@@ -278,7 +279,7 @@ fieldset {
   color: #888;
 }
 .footerr {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   background: #40e0d0;
   display: flex;
