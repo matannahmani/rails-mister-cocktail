@@ -21,7 +21,7 @@
       <% if !@cocktails.nil? %>
       <% @cocktails.each do |cocktail| %>
     <div class="card-product">
-      <%= cl_image_tag cocktail.photo.key, height: 150, width: 150, crop: :fill %>
+      <%= cl_image_tag cocktail.photo.key, height: 150, width: 150, crop: :fill if cocktail.photo.attached? %>
       <div class="card-product-infos">
       <h2><%= cocktail.name %></h2>
       <% @dose_ids = cocktail.dose_ids %>
