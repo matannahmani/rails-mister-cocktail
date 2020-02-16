@@ -25,10 +25,14 @@
       <div class="card-product-infos">
       <h2><%= cocktail.name %></h2>
       <% @dose_ids = cocktail.dose_ids %>
+      <div class="scroll-ingredients">
       <% @dose_ids.each do |ingredient| %>
-      <p><%= Dose.find(ingredient).ingredient.name %> - <%= Dose.find(ingredient).description %></p>
+        <p><%= Dose.find(ingredient).ingredient.name %> - <%= Dose.find(ingredient).description %></p>
       <% end %>
-      <span><%= link_to "Update?", cocktail_path(cocktail) %></span>
+      </div>
+      <span class="update">
+        <%= link_to "", cocktail_path(cocktail), class: "fa fa-pencil fa-lg text-reset" %>
+      </span>
       </div>
     </div>
       <% end %>

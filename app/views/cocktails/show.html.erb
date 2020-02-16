@@ -1,14 +1,13 @@
-<%= javascript_pack_tag 'index' %>
   <div class="navbar">
     <div class="search">
       <label>Search</label>
       <input type="text" name="index" placeholder="Search cocktail">
     </div>
     <div class="add">
-      <a href="<%= new_cocktail_path %>"><button>Your Cocktail</button></a>
+      <a href="<%= new_cocktail_path %>"><button>New</button></a>
     </div>
     <div class="add">
-      <a href="<%= cocktails_path %>"><button>Go Home!</button></a>
+      <a href="<%= cocktails_path %>"><button>Cocktails</button></a>
     </div>
   </div>
   <div class="banner">
@@ -24,17 +23,19 @@
     <div class="card-product">
       <%= cl_image_tag @cocktail.photo.key, height: 150, width: 150, crop: :fill if @cocktail.photo.attached? %>
       <div class="card-product-infos">
-      <h2><%= @cocktail.name %></h1>
-      <% dose = Dose.find_by(cocktail_id: @cocktail.id) %>
-      <p><%= dose.ingredient.name %> - <%= dose.description %></p>
-      <span id="edit"><%= link_to 'edit', edit_cocktail_path(@cocktail) %></span>
-      <%= link_to "Remove", destroy_path(@cocktail), method: :delete %>
-    </h2>
+        <h2><%= @cocktail.name %></h2>
+      <% @dose_ids = @cocktail.dose_ids %>
+      <div class="scroll-ingredients">
+        <% @dose_ids.each do |ingredient| %>
+          <p><%= Dose.find(ingredient).ingredient.name %> - <%= Dose.find(ingredient).description %></p>
+        <% end %>
+      </div>
+        <span class="update"><%= link_to "", cocktail_path(@cocktail), class: "fa fa-pencil fa-lg text-reset", id: "edit" %></span>
+        <span class="remove"><%= link_to "Remove", destroy_path(@cocktail), method: :delete %></span>
+     </div>
     </div>
   </div>
 </div>
-</div>
-  <div class="footer">
-    <!-- Footer here</!-->
+  <div class="footerr">
     <span>This is footer</span>
   </div>
